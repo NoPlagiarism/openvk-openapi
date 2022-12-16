@@ -1,7 +1,7 @@
 _id: spc_d8678fd5db644f2c8e18ed189191f046
 type: ApiSpec
 parentId: wrk_b214c0f2ac4243a9b094fa9545ad3ef2
-modified: 1671217440928
+modified: 1671218376463
 created: 1669130262606
 fileName: openvk.yaml
 contents: >
@@ -1324,6 +1324,8 @@ contents: >
                       example: 142542
                     parents_stack:
                       type: array
+                      items:
+                        type: object
                       description: always empty. dummy
                       example: []
     /Wall.deleteComment:
