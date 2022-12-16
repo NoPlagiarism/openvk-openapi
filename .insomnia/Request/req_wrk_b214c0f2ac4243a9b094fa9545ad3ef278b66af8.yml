@@ -1,0 +1,27 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef278b66af8
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2ae9629f4
+modified: 1670509411149
+created: 1670509411149
+url: "{{ base_url }}/Groups.join"
+name: /Groups.join
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: group_id
+    disabled: false
+    value: string
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1670509411149
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

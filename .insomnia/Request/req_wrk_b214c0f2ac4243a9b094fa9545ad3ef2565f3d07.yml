@@ -1,0 +1,51 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2565f3d07
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef285dfa32c
+modified: 1670903160845
+created: 1670903160845
+url: "{{ base_url }}/Account.saveProfileInfo"
+name: /Account.saveProfileInfo
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: first_name
+    disabled: true
+    value: string
+  - name: last_name
+    disabled: true
+    value: string
+  - name: screen_name
+    disabled: true
+    value: string
+  - name: sex
+    disabled: true
+    value: "0"
+  - name: relation
+    disabled: true
+    value: "0"
+  - name: bdate
+    disabled: true
+    value: string
+  - name: bdate_visibility
+    disabled: true
+    value: "0"
+  - name: home_town
+    disabled: true
+    value: string
+  - name: status
+    disabled: true
+    value: string
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1670903160845
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

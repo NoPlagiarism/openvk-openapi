@@ -1,0 +1,25 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2ef4fde87
+type: Request
+parentId: wrk_b214c0f2ac4243a9b094fa9545ad3ef2
+modified: 1670503698569
+created: 1669131335694
+url: "{{ base_url }}/Account.getProfileInfo"
+name: /Account.getProfileInfo
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: access_token
+    disabled: false
+    value: "{{ _.accessToken }}"
+    id: pair_880f9a77e94b40b9b9726a59af73c200
+headers: []
+authentication: {}
+metaSortKey: -1669131335694
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

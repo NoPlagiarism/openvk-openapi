@@ -1,0 +1,30 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2eaddfcf5
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2db34e415
+modified: 1671216334461
+created: 1671216334461
+url: "{{ base_url }}/Polls.addVote"
+name: /Polls.addVote
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: poll_id
+    disabled: false
+    value: "0"
+  - name: answer_ids
+    disabled: false
+    value: string
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1671216334461
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,33 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef251cf3da2
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef257f2b181
+modified: 1671216334456
+created: 1671216334456
+url: "{{ base_url }}/Users.search"
+name: /Users.search
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: q
+    disabled: false
+    value: string
+  - name: fields
+    disabled: true
+    value: verified,sex,has_photo,photo_max_orig,photo_max,photo_50,photo_100,photo_200,photo_200_orig,photo_400_orig,status,screen_name,friend_status,last_seen,music,movies,tv,books,city,interests
+  - name: count
+    disabled: true
+    value: "0"
+  - name: offset
+    disabled: true
+    value: "0"
+headers: []
+authentication: {}
+metaSortKey: -1671216334456
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

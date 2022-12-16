@@ -1,0 +1,36 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef22385af38
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2e9f009d9
+modified: 1670593775893
+created: 1670593775893
+url: "{{ base_url }}/Likes.isLiked"
+name: /Likes.isLiked
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: type
+    disabled: false
+    value: string
+  - name: owner_id
+    disabled: false
+    value: "0"
+  - name: item_id
+    disabled: false
+    value: "0"
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1670593775893
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

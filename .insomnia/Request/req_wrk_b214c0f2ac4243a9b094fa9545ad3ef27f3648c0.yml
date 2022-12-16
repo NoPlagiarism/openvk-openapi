@@ -1,0 +1,30 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef27f3648c0
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2ae9629f4
+modified: 1670509411150
+created: 1670509411150
+url: "{{ base_url }}/Groups.search"
+name: /Groups.search
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: q
+    disabled: false
+    value: string
+  - name: offset
+    disabled: true
+    value: "0"
+  - name: count
+    disabled: true
+    value: "0"
+headers: []
+authentication: {}
+metaSortKey: -1670509411150
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

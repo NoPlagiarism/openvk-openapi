@@ -1,0 +1,21 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef29d85af12
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef285dfa32c
+modified: 1670506141844
+created: 1670506141844
+url: "{{ base_url }}/Account.getAppPermissions"
+name: /Account.getAppPermissions
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1670506141844
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,37 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef23a3b20fd
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2c4633c09
+modified: 1671216366470
+created: 1671216334452
+url: "{{ base_url }}/Wall.getById"
+name: /Wall.getById
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: posts
+    disabled: false
+    value: 10484_7,-2459_2
+    id: pair_0597b0ed818f4816a3a110204e96ca2f
+  - name: extended
+    disabled: true
+    value: "0"
+    id: pair_69e2b5d72b3443238fcc0a4b8cd56a88
+  - name: fields
+    disabled: true
+    value: string
+    id: pair_219f350ee08f43f4b6496adb8b2b57c6
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+    id: pair_b78ca96442bc489da1b58a3c286ade3f
+headers: []
+authentication: {}
+metaSortKey: -1671216334452
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

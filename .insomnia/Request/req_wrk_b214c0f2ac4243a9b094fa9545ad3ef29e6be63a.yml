@@ -1,0 +1,39 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef29e6be63a
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef257f2b181
+modified: 1671216334457
+created: 1671216334457
+url: "{{ base_url }}/Users.getFollowers"
+name: /Users.getFollowers
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: user_id
+    disabled: false
+    value: "0"
+  - name: fields
+    disabled: true
+    value: verified,sex,has_photo,photo_max_orig,photo_max,photo_50,photo_100,photo_200,photo_200_orig,photo_400_orig,status,screen_name,friend_status,last_seen,music,movies,tv,books,city,interests
+  - name: authuser
+    disabled: true
+    value: "0"
+  - name: count
+    disabled: true
+    value: "0"
+  - name: offset
+    disabled: true
+    value: "0"
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1671216334457
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

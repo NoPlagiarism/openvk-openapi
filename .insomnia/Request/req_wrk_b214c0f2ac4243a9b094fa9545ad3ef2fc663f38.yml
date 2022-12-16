@@ -1,0 +1,33 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2fc663f38
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef235d0f5fb
+modified: 1670692345098
+created: 1670692345098
+url: "{{ base_url }}/token"
+name: /token
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: username
+    disabled: false
+    value: user@example.com
+  - name: password
+    disabled: false
+    value: string
+  - name: code
+    disabled: true
+    value: string
+  - name: grant_type
+    disabled: false
+    value: string
+headers: []
+authentication: {}
+metaSortKey: -1670692345098
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

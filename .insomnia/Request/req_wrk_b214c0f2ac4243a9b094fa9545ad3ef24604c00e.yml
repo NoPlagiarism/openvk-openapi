@@ -1,0 +1,21 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef24604c00e
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef224a27145
+modified: 1671216334459
+created: 1671216334459
+url: "{{ base_url }}/Utils.getServerTime"
+name: /Utils.getServerTime
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1671216334459
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

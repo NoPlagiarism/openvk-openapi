@@ -1,0 +1,21 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2bc45706f
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef27361d1bb
+modified: 1670900743671
+created: 1670900743671
+url: "{{ base_url }}/Ovk.version"
+name: /Ovk.version
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1670900743671
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

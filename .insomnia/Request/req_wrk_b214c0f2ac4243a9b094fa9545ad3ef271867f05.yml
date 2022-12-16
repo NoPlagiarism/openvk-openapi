@@ -1,0 +1,34 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef271867f05
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef27361d1bb
+modified: 1671131384167
+created: 1670900743667
+url: "{{ base_url }}/Ovk.aboutInstance"
+name: /Ovk.aboutInstance
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: access_token
+    disabled: false
+    value: "{{ _.accessToken }}"
+    id: pair_35cbd05eac964416b13cfc59cf92c839
+    description: ""
+  - id: pair_1b0fd1ff2d9547bba0b2a03773b3746d
+    name: start_from
+    value: "79569"
+    description: ""
+  - id: pair_a0ae630fdf4948e0b93e7fb42de2e868
+    name: count
+    value: "1"
+    description: ""
+headers: []
+authentication: {}
+metaSortKey: -1670900743667
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

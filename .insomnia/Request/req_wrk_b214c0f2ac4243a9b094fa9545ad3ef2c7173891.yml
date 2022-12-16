@@ -1,0 +1,39 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2c7173891
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2bba353a9
+modified: 1671217437820
+created: 1671217437820
+url: "{{ base_url }}/Newsfeed.get"
+name: /Newsfeed.get
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: fields
+    disabled: true
+    value: string
+  - name: extended
+    disabled: true
+    value: "0"
+  - name: start_from
+    disabled: true
+    value: "0"
+  - name: offset
+    disabled: true
+    value: "0"
+  - name: count
+    disabled: true
+    value: "30"
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1671217437820
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

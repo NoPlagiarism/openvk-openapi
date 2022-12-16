@@ -1,0 +1,36 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef203450ec8
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2c4633c09
+modified: 1671216334447
+created: 1671216334447
+url: "{{ base_url }}/Wall.getComment"
+name: /Wall.getComment
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: comment_id
+    disabled: false
+    value: "0"
+  - name: owner_id
+    disabled: false
+    value: "0"
+  - name: extended
+    disabled: true
+    value: "0"
+  - name: fields
+    disabled: true
+    value: string
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1671216334447
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,30 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2988cc5d2
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2f1702b46
+modified: 1670898321974
+created: 1670898321974
+url: "{{ base_url }}/Messages.getConversationsById"
+name: /Messages.getConversationsById
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: extended
+    disabled: true
+    value: "0"
+  - name: fields
+    disabled: true
+    value: string
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1670898321974
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

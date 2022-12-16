@@ -1,0 +1,24 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef206575796
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef285dfa32c
+modified: 1670506141846
+created: 1670506141846
+url: "{{ base_url }}/Account.setOffline"
+name: /Account.setOffline
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1670506141846
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,24 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2192093091
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2834d61b1
+modified: 1670509411165
+created: 1670509411165
+url: "{{ base_url }}/Friends.deleteList"
+name: /Friends.deleteList
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1670509411165
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

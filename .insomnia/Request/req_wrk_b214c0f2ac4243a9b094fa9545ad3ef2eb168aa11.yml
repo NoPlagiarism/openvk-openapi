@@ -1,0 +1,24 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2eb168aa11
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2834d61b1
+modified: 1670509411167
+created: 1670509411167
+url: "{{ base_url }}/Friends.edit"
+name: /Friends.edit
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1670509411167
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

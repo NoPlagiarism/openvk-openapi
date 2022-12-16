@@ -1,0 +1,36 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2bcfa107a
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2c4633c09
+modified: 1671216334451
+created: 1671216334451
+url: "{{ base_url }}/Wall.post"
+name: /Wall.post
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: owner_id
+    disabled: false
+    value: "0"
+  - name: message
+    disabled: false
+    value: string
+  - name: from_group
+    disabled: true
+    value: "0"
+  - name: signed
+    disabled: true
+    value: "0"
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1671216334451
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

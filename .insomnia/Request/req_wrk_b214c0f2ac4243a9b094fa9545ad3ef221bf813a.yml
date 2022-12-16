@@ -1,0 +1,33 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef221bf813a
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2c4633c09
+modified: 1671216334455
+created: 1671216334455
+url: "{{ base_url }}/Wall.get"
+name: /Wall.get
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: owner_id
+    disabled: false
+    value: "0"
+  - name: count
+    disabled: true
+    value: "0"
+  - name: offset
+    disabled: true
+    value: "0"
+  - name: extended
+    disabled: true
+    value: "0"
+headers: []
+authentication: {}
+metaSortKey: -1671216334455
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

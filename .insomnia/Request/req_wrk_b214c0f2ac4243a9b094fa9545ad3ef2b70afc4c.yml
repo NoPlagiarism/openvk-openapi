@@ -1,0 +1,27 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2b70afc4c
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2c11d5e1d
+modified: 1670509411154
+created: 1670509411154
+url: "{{ base_url }}/Friends.areFriends"
+name: /Friends.areFriends
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: user_ids
+    disabled: false
+    value: string
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+headers: []
+authentication: {}
+metaSortKey: -1670509411154
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

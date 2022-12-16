@@ -1,0 +1,42 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2ae4921ae
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2c11d5e1d
+modified: 1670512056253
+created: 1670506141840
+url: "{{ base_url }}/Friends.get"
+name: /Friends.get
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: posts
+    disabled: false
+    value: -1879_400
+    id: pair_c29f89688f2142e9a1abe480c0a4fb08
+  - name: offset
+    disabled: true
+    value: "0"
+    id: pair_66c0bb4b2cc547e7984901f943057c1c
+  - name: count
+    disabled: true
+    value: "1"
+    id: pair_fefe3a12aab242b3bbafcf0ddc2589a8
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+    id: pair_b6b6b69c42e04cd79370c3e6795a2296
+  - name: fields
+    disabled: true
+    value: statistics, administrators, popular_groups, links
+    id: pair_ef4ccd364b514be286991aa4607f35b5
+    description: ""
+headers: []
+authentication: {}
+metaSortKey: -1670506141840
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

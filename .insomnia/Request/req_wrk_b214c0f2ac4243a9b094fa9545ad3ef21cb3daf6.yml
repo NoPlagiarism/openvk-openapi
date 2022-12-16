@@ -1,0 +1,24 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef21cb3daf6
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2db34e415
+modified: 1671216334462
+created: 1671216334462
+url: "{{ base_url }}/Polls.getById"
+name: /Polls.getById
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: poll_id
+    disabled: false
+    value: "0"
+headers: []
+authentication: {}
+metaSortKey: -1671216334462
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

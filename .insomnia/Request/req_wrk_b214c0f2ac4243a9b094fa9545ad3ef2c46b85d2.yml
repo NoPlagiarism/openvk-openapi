@@ -1,0 +1,45 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2c46b85d2
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef2c4633c09
+modified: 1671216395565
+created: 1671216334446
+url: "{{ base_url }}/Wall.getComments"
+name: /Wall.getComments
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: owner_id
+    disabled: false
+    value: "0"
+    id: pair_9eec275639084d2ebe3fc90d86d7a634
+  - name: post_id
+    disabled: false
+    value: "0"
+    id: pair_a538aee4e4e04872831bf91af014c9a7
+  - name: need_likes
+    disabled: true
+    value: "true"
+    id: pair_c165f8d739e54ce4a404872532d561c0
+  - name: count
+    disabled: true
+    value: "0"
+    id: pair_bff531e1130341b79f82dd3983099828
+  - name: offset
+    disabled: true
+    value: "0"
+    id: pair_d287267ddec34fdca4171833b09f6d91
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+    id: pair_748ee4b0b1f949c2ad839accc5ca37d4
+headers: []
+authentication: {}
+metaSortKey: -1671216334446
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

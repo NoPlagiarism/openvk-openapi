@@ -1,0 +1,25 @@
+_id: req_wrk_b214c0f2ac4243a9b094fa9545ad3ef2815c2c97
+type: Request
+parentId: fld_wrk_b214c0f2ac4243a9b094fa9545ad3ef285dfa32c
+modified: 1670506260486
+created: 1670506141841
+url: "{{ base_url }}/Account.getCounters"
+name: /Account.getCounters
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: access_token
+    disabled: false
+    value: "{{ accessToken }}"
+    id: pair_ffa3153641924750af4e70ca7305f20a
+headers: []
+authentication: {}
+metaSortKey: -1670506141841
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
