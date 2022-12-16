@@ -1316,6 +1316,8 @@ paths:
                     example: 142542
                   parents_stack:
                     type: array
+                    items:
+                      type: object
                     description: always empty. dummy
                     example: []
   /Wall.deleteComment:
