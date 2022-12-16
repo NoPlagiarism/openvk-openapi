@@ -1,0 +1,2776 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "0.0.1",
+    "title": "OpenVK API",
+    "description": "Simple API docs for usable OVK",
+    "contact": {
+      "name": "NoPlagiarism",
+      "url": "https://github.com/NoPlagiarism/openvk-openapi"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://openvk.uk/method",
+      "description": "Official"
+    },
+    {
+      "url": "https://social.fetbuk.ru/"
+    },
+    {
+      "url": "https://vepurovk.xyz/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Authorization"
+    },
+    {
+      "name": "Account",
+      "description": "Info about token"
+    },
+    {
+      "name": "Friends",
+      "description": "Friendies"
+    },
+    {
+      "name": "Groups",
+      "description": "Clubs`n groups"
+    },
+    {
+      "name": "Likes",
+      "description": "Likes on all"
+    },
+    {
+      "name": "Messages",
+      "description": "Messages and all"
+    },
+    {
+      "name": "Ovk",
+      "description": "OVK specific"
+    },
+    {
+      "name": "Polls",
+      "description": "Polls"
+    },
+    {
+      "name": "Utils",
+      "description": "Get some server utils"
+    },
+    {
+      "name": "Users",
+      "description": "Info about users"
+    },
+    {
+      "name": "Wall",
+      "description": "Wall, posts"
+    },
+    {
+      "name": "Newsfeed",
+      "description": "feed"
+    },
+    {
+      "name": "Dummy",
+      "description": "Dummy functions"
+    }
+  ],
+  "paths": {
+    "/token": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "servers": [
+          {
+            "url": "https://openvk.uk/"
+          },
+          {
+            "url": "https://social.fetbuk.ru/"
+          },
+          {
+            "url": "https://vepurovk.xyz/"
+          }
+        ],
+        "description": "Get token",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Email",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "email"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "password"
+            }
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "description": "2FA code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "grant_type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "password"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "access_token, expires_id, user_id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Account.getProfileInfo": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Account"
+        ],
+        "description": "Returns the info about account. Some fields are faked for VK API Compatibility",
+        "responses": {
+          "200": {
+            "description": "Account info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Account.getInfo": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Account",
+          "Dummy"
+        ],
+        "description": "This is a dummy function",
+        "responses": {
+          "200": {
+            "description": "dum-dum",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Account.setOnline": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Account"
+        ],
+        "description": "Set the online status to current",
+        "responses": {
+          "200": {
+            "description": "Always 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Account.setOffline": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Account",
+          "Dummy"
+        ],
+        "description": "Dummy function",
+        "responses": {
+          "200": {
+            "description": "Always 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Account.getAppPermissions": {
+      "get": {
+        "tags": [
+          "Account",
+          "Dummy"
+        ],
+        "description": "Dummy function",
+        "responses": {
+          "200": {
+            "description": "Always 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Account.getCounters": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Account"
+        ],
+        "description": "Returns the counters.",
+        "responses": {
+          "200": {
+            "description": "Unread Messages, Notifications and Friends Requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Account.saveProfileInfo": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Account"
+        ],
+        "description": "save Profile Info",
+        "parameters": [
+          {
+            "name": "first_name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "last_name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "screen_name",
+            "in": "query",
+            "description": "domain, short code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sex",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "relation",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "description": "Not selected, Not married, Dating, Engaged, Married, In a civil marriage, In love, Everything is complicated, Actively searching",
+              "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+              ]
+            }
+          },
+          {
+            "name": "bdate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "description": "{ADD STH HERE}"
+            }
+          },
+          {
+            "name": "bdate_visibility",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "description": "1: Show, 2: Show month and day",
+              "enum": [
+                1,
+                2
+              ]
+            }
+          },
+          {
+            "name": "home_town",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ADD STH HERE}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Friends.get": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Friends"
+        ],
+        "description": "Returns the users friend ID list with count.",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "def: 0",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "def: 100",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Fields of users. Don`t work",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Unread Messages, Notifications and Friends Requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Friends.getRequests": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Friends"
+        ],
+        "description": "Returns current user`s requests.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "def: 0",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "def: 100",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "Fields of users. Don`t work",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "extended",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Unread Messages, Notifications and Friends Requests.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Friends.getLists": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Friends",
+          "Dummy"
+        ],
+        "description": "Dummy function",
+        "responses": {
+          "200": {
+            "description": "Always 0 items",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Friends.edit": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Friends",
+          "Dummy"
+        ],
+        "description": "Dummy function",
+        "responses": {
+          "200": {
+            "description": "Always 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Friends.deleteList": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Friends",
+          "Dummy"
+        ],
+        "description": "Dummy function",
+        "responses": {
+          "200": {
+            "description": "Always 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Friends.editList": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Friends",
+          "Dummy"
+        ],
+        "description": "Dummy function",
+        "responses": {
+          "200": {
+            "description": "Always 1",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Friends.add": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Friends"
+        ],
+        "description": "Sends a requests to another user or adds user to friends list",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "user_id to add",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns: 1 (friend request sent) or 2 (request from user approved)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Friends.delete": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Friends"
+        ],
+        "description": "Removes the user from friend list or the request.",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "user_id to delete",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 1 if successed, otherwise will throw an error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Friends.areFriends": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Friends"
+        ],
+        "description": "Checks the friendship status with other specified users.",
+        "parameters": [
+          {
+            "name": "user_ids",
+            "in": "query",
+            "required": true,
+            "description": "user_ids joined by `,`",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ADD STH HERE}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Groups.get": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Groups"
+        ],
+        "description": "Returns the user`s groups list with count.",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "description": "if 0 => user is self",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "def: 0",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "def: 6",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "fields, joined by \",\": `verified, has_photo, photo_max_orig, photo_max, photo_50, photo_100, photo_200, photo_200_orig, photo_400_orig, members_count`",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Group list and count.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Groups.getById": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "description": "Returns the info about group(s). group_id or group_ids required",
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "query",
+            "required": false,
+            "description": "one group id",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "group_ids",
+            "in": "query",
+            "required": false,
+            "description": "ids separated by \",\"",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "def: 0",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "def: 500",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "description": "fields, joined by \",\": `verified, has_photo, photo_max_orig, photo_max, photo_50, photo_100, photo_200, photo_200_orig, photo_400_orig, members_count, site, description, contacts, can_post, is_member`",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Group list and count.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Groups.search": {
+      "get": {
+        "tags": [
+          "Groups"
+        ],
+        "description": "Returns the info about group(s). group_id or group_ids required",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "description": "def: 0",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "def: 100",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Group list and count.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Groups.join": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Groups"
+        ],
+        "description": "Joins the group.",
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "query",
+            "required": true,
+            "description": "group_id to join",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 1 on success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Groups.leave": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Groups"
+        ],
+        "description": "Leave the group.",
+        "parameters": [
+          {
+            "name": "group_id",
+            "in": "query",
+            "required": true,
+            "description": "group_id to leave",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 1 on success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Likes.add": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Likes"
+        ],
+        "description": "Likes the object.",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "post"
+              ]
+            }
+          },
+          {
+            "name": "owner_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "item_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns count of likes.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Likes.delete": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Likes"
+        ],
+        "description": "Removes like from the object.",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "post"
+              ]
+            }
+          },
+          {
+            "name": "owner_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "item_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns count of likes.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Likes.isLiked": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Likes"
+        ],
+        "description": "Checks if user liked the object or not.",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "post"
+              ]
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "owner_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "item_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns json representing liked or not.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Messages.getById": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Messages"
+        ],
+        "description": "Returns the messages by it`s IDs.",
+        "parameters": [
+          {
+            "name": "message_ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "preview_length",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "extended",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ADD STH HERE}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Messages.send": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Messages"
+        ],
+        "description": "Sends a message to user. user_id or peer_id required",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "peer_id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "domain",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "user_ids",
+            "in": "query",
+            "required": false,
+            "description": "ids separated by \",\"",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return the messages ID, if successed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Messages.delete": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Messages"
+        ],
+        "description": "Deletes the message.",
+        "parameters": [
+          {
+            "name": "message_ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return {\"message_id\": 1 if succeed}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Messages.restore": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Messages"
+        ],
+        "description": "Deletes the message.",
+        "parameters": [
+          {
+            "name": "message_ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Return {\"message_id\": 1 if succeed}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Messages.getConversations": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Messages"
+        ],
+        "description": "Returns user`s chat list.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "def: 20",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "extended",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ADD STH HERE}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Messages.getConversationsById": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Messages"
+        ],
+        "description": "Returns the user`s chats by their peer IDs.",
+        "parameters": [
+          {
+            "name": "extended",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ADD STH HERE}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Messages.getHistory": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Messages"
+        ],
+        "description": "Returns chat`s history.",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "description": "def: 20",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "peer_id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "start_message_id",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "rev",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "extended",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ADD STH HERE}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Messages.getLongPollHistory": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Messages"
+        ],
+        "description": "Return`s LongPoll history.",
+        "parameters": [
+          {
+            "name": "ts",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "preview_length",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "events_limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "msgs_limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ADD STH HERE}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Messages.getLongPollServer": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "name": "need_pts",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "lp_version",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{ADD STH HERE}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Ovk.version": {
+      "get": {
+        "tags": [
+          "Ovk"
+        ],
+        "responses": {
+          "200": {
+            "description": "Version string",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "string",
+                      "example": "Altair Preview ({some commit}-nightly)"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Ovk.test": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {}
+        ],
+        "tags": [
+          "Ovk"
+        ],
+        "responses": {
+          "200": {
+            "description": "information about access token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "authorized": {
+                          "type": "boolean"
+                        },
+                        "auth_with": {
+                          "type": "string",
+                          "example": "access_token"
+                        },
+                        "version": {
+                          "type": "string",
+                          "example": "4.100"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Ovk.chickenWings": {
+      "get": {
+        "tags": [
+          "Ovk"
+        ],
+        "responses": {
+          "200": {
+            "description": "крылышки string",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "string",
+                      "example": "крылышки"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Ovk.aboutInstance": {
+      "get": {
+        "tags": [
+          "Ovk"
+        ],
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "statistics,administrators,links"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "information about the instance, including stats, administrators, most popular groups and links."
+          }
+        }
+      }
+    },
+    "/Polls.getById": {
+      "get": {
+        "tags": [
+          "Polls"
+        ],
+        "description": "Poll info",
+        "parameters": [
+          {
+            "name": "poll_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "poll info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Polls.addVote": {
+      "get": {
+        "description": "Adds a vote to poll",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Polls"
+        ],
+        "parameters": [
+          {
+            "name": "poll_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "answer_ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "1 on success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "integer",
+                      "enum": [
+                        0,
+                        1
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Polls.deleteVote": {
+      "get": {
+        "description": "Removes the vote, except if it is not revotable or it is locked.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Polls"
+        ],
+        "parameters": [
+          {
+            "name": "poll_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "1 on success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "integer",
+                      "enum": [
+                        0,
+                        1
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Utils.getServerTime": {
+      "get": {
+        "tags": [
+          "Utils"
+        ],
+        "responses": {
+          "200": {
+            "description": "Server time in unix",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "integer",
+                      "example": 1607698019
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Users.get": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "user`s info",
+        "parameters": [
+          {
+            "name": "user_ids",
+            "in": "query",
+            "required": true,
+            "description": "ids separated by `,`",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "verified,sex,has_photo,photo_max_orig,photo_max,photo_50,photo_100,photo_200,photo_200_orig,photo_400_orig,status,screen_name,friend_status,last_seen,music,movies,tv,books,city,interests"
+            }
+          },
+          {
+            "name": "authuser",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "information about user or users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Users.getFollowers": {
+      "get": {
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "tags": [
+          "Users"
+        ],
+        "description": "Returns the followers of user.",
+        "parameters": [
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": true,
+            "description": "id",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "verified,sex,has_photo,photo_max_orig,photo_max,photo_50,photo_100,photo_200,photo_200_orig,photo_400_orig,status,screen_name,friend_status,last_seen,music,movies,tv,books,city,interests"
+            }
+          },
+          {
+            "name": "authuser",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "information about follower or followers.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Users.search": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Searches the users by name, surname or bio, and returns the list.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "verified,sex,has_photo,photo_max_orig,photo_max,photo_50,photo_100,photo_200,photo_200_orig,photo_400_orig,status,screen_name,friend_status,last_seen,music,movies,tv,books,city,interests"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "information about user or users.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Wall.get": {
+      "get": {
+        "tags": [
+          "Wall"
+        ],
+        "description": "Returns the posts on the wall. Extended parameter will also return profile info.",
+        "parameters": [
+          {
+            "name": "owner_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "extended",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "posts from wall.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Wall.getById": {
+      "get": {
+        "tags": [
+          "Wall"
+        ],
+        "description": "Returns post(s) by pretty ID (like 1_3 or 32_3). Extended parameter will also return profile info.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "posts",
+            "in": "query",
+            "required": true,
+            "description": "pretty ID (like 1_3 or 32_3), separated by `,`",
+            "schema": {
+              "type": "string",
+              "example": "10484_7,-2459_2"
+            }
+          },
+          {
+            "name": "extended",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "dummy parameter. Not working",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "posts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Wall.post": {
+      "get": {
+        "tags": [
+          "Wall"
+        ],
+        "description": "Creates new post on wall.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "owner_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from_group",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "signed",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "id if success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "object",
+                      "properties": {
+                        "post_id": {
+                          "type": "string",
+                          "example": 104847
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Wall.repost": {
+      "get": {
+        "tags": [
+          "Wall"
+        ],
+        "description": "Reposts (copies) a post to a user wall by pretty ID (like wall-1246_747 or wall6_436).",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "object",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": 104847
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "a lot",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "integer",
+                      "enum": [
+                        1
+                      ]
+                    },
+                    "post_id": {
+                      "type": "string",
+                      "example": "21424341_23"
+                    },
+                    "reposts_count": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "likes_count": {
+                      "type": "integer",
+                      "example": 5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Wall.createComment": {
+      "get": {
+        "tags": [
+          "Wall"
+        ],
+        "description": "Adds a comment to a post on a user wall or community wall.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "owner_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "post_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from_group",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "comment_id and parents_stack (always empty)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "comment_id": {
+                      "type": "integer",
+                      "example": 142542
+                    },
+                    "parents_stack": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      },
+                      "description": "always empty. dummy",
+                      "example": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Wall.deleteComment": {
+      "get": {
+        "tags": [
+          "Wall"
+        ],
+        "description": "Deletes a comment on a post on a user wall or community wall.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "comment_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns 1 if success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "integer",
+                      "example": 1,
+                      "enum": [
+                        1
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Wall.getComment": {
+      "get": {
+        "tags": [
+          "Wall"
+        ],
+        "description": "Returns the info about comment.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "comment_id",
+            "in": "query",
+            "required": true,
+            "example": 12434,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "owner_id",
+            "in": "query",
+            "required": true,
+            "example": -1,
+            "description": "Required, but dummy.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "extended",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "same as users",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "comment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Wall.getComments": {
+      "get": {
+        "tags": [
+          "Wall"
+        ],
+        "description": "Returns a list of comments on a post on a user wall or community wall.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "owner_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "post_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "need_likes",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "comments.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Newsfeed.get": {
+      "get": {
+        "tags": [
+          "Newsfeed"
+        ],
+        "description": "Returns posts from newsfeed.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "same as users",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "extended",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "start_from",
+            "in": "query",
+            "description": "working on iternal posts id",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 30
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "local newsfeed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Newsfeed.getGlobal": {
+      "get": {
+        "tags": [
+          "Newsfeed"
+        ],
+        "description": "Returns posts from newsfeed.",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "same as users",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "extended",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "start_from",
+            "in": "query",
+            "description": "working on iternal posts id",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 30
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "global newsfeed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "name": "access_token",
+        "in": "query"
+      }
+    }
+  }
+}
