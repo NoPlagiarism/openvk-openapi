@@ -13,7 +13,11 @@ parameters:
     disabled: false
     value: "{{ accessToken }}"
 headers: []
-authentication: {}
+authentication:
+  type: apikey
+  key: access_token
+  value: "{{ accessToken }}"
+  addTo: query
 metaSortKey: -1670509411163
 isPrivate: false
 settingStoreCookies: true

@@ -31,7 +31,11 @@ parameters:
     id: pair_ef4ccd364b514be286991aa4607f35b5
     description: ""
 headers: []
-authentication: {}
+authentication:
+  type: apikey
+  key: access_token
+  value: "{{ accessToken }}"
+  addTo: query
 metaSortKey: -1670506141840
 isPrivate: false
 settingStoreCookies: true

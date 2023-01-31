@@ -1,7 +1,7 @@
 _id: spc_d8678fd5db644f2c8e18ed189191f046
 type: ApiSpec
 parentId: wrk_b214c0f2ac4243a9b094fa9545ad3ef2
-modified: 1671218376463
+modified: 1675153552095
 created: 1669130262606
 fileName: openvk.yaml
 contents: >
@@ -17,8 +17,8 @@ contents: >
   servers:
     - url: https://openvk.uk/method
       description: Official
-    - url: https://social.fetbuk.ru/
-    - url: https://vepurovk.xyz/
+    - url: https://social.fetbuk.ru/method
+    - url: https://vepurovk.xyz/method
   tags:
     - name: Auth
       description: Authorization
@@ -55,6 +55,7 @@ contents: >
           - url: https://social.fetbuk.ru/
           - url: https://vepurovk.xyz/
         description: Get token
+        operationId: getToken
         parameters:
           - name: username
             in: query
@@ -92,6 +93,7 @@ contents: >
         security: 
           - ApiKeyAuth: []
         tags: [Account]
+        operationId: accountGetProfileInfo
         description: Returns the info about account. Some fields are faked for VK API Compatibility
         responses:
           '200':
@@ -104,6 +106,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Account, Dummy]
+        operationId: accountGetInfo
         description: This is a dummy function
         responses:
           '200':
@@ -116,6 +119,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Account]
+        operationId: setOnline
         description: Set the online status to current
         responses:
           '200':
@@ -128,6 +132,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Account, Dummy]
+        operationId: setOffline
         description: Dummy function
         responses:
           '200':
@@ -140,6 +145,7 @@ contents: >
       get:
         tags: [Account, Dummy]
         description: Dummy function
+        operationId: getAppPermissions
         responses:
           '200':
             description: Always 1
@@ -151,6 +157,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Account]
+        operationId: getAccountCounters
         description: Returns the counters.
         responses:
           '200':
@@ -164,6 +171,7 @@ contents: >
         security: [ApiKeyAuth: []]
         tags: [Account]
         description: save Profile Info
+        operationId: saveProfileInfo
         parameters:
           - name: first_name
             in: query
@@ -219,6 +227,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Friends]
+        operationId: getUserFriends
         description: Returns the users friend ID list with count.
         parameters:
           - name: user_id
@@ -257,6 +266,7 @@ contents: >
         security: [ApiKeyAuth: []]
         tags: [Friends]
         description: Returns current user`s requests.
+        operationId: getFriendRequests
         parameters:
           - name: offset
             in: query
@@ -273,15 +283,9 @@ contents: >
           - name: fields
             in: query
             required: false
-            description: 'Fields of users. Don`t work'
+            description: 'Fields of users'
             schema:
               type: string
-          - name: extended
-            in: query
-            required: false
-            schema:
-              type: integer
-              enum: [0, 1]
         responses:
           '200':
             description: Unread Messages, Notifications and Friends Requests.
@@ -292,6 +296,7 @@ contents: >
     /Friends.getLists:
       get:
         security: [ApiKeyAuth: []]
+        operationId: getFriendLists
         tags: [Friends, Dummy]
         description: Dummy function
         responses:
@@ -305,6 +310,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Friends, Dummy]
+        operationId: editFriends
         description: Dummy function
         responses:
           '200':
@@ -317,6 +323,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Friends, Dummy]
+        operationId: deleteFriendList
         description: Dummy function
         responses:
           '200':
@@ -329,6 +336,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Friends, Dummy]
+        operationId: editFriendList
         description: Dummy function
         responses:
           '200':
@@ -341,6 +349,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Friends]
+        operationId: addFriend
         description: Sends a requests to another user or adds user to friends list
         parameters:
           - name: user_id
@@ -361,6 +370,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Friends]
+        operationId: deleteFriend
         description: Removes the user from friend list or the request.
         parameters:
           - name: user_id
@@ -381,6 +391,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Friends]
+        operationId: checkAreFriends
         description: Checks the friendship status with other specified users.
         parameters:
           - name: user_ids
@@ -400,6 +411,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Groups]
+        operationId: getGroups
         description: Returns the user`s groups list with count.
         parameters:
           - name: user_id
@@ -438,6 +450,7 @@ contents: >
       get:
         tags: [Groups]
         description: Returns the info about group(s). group_id or group_ids required
+        operationId: getGroupsById
         parameters:
           - name: group_id
             in: query
@@ -479,6 +492,7 @@ contents: >
     /Groups.search:
       get:
         tags: [Groups]
+        operationId: searchGroups
         description: Returns the info about group(s). group_id or group_ids required
         parameters:
           - name: q
@@ -510,6 +524,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Groups]
+        operationId: joinGroup
         description: Joins the group.
         parameters:
           - name: group_id
@@ -529,6 +544,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Groups]
+        operationId: leaveGroup
         description: Leave the group.
         parameters:
           - name: group_id
@@ -548,6 +564,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Likes]
+        operationId: addLike
         description: Likes the object.
         parameters:
           - name: type
@@ -577,6 +594,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Likes]
+        operationId: deleteLike
         description: Removes like from the object.
         parameters:
           - name: type
@@ -606,6 +624,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Likes]
+        operationId: checkIsLiked
         description: Checks if user liked the object or not.
         parameters:
           - name: type
@@ -640,6 +659,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Messages]
+        operationId: getMessagesById
         description: Returns the messages by it`s IDs.
         parameters:
           - name: message_ids
@@ -667,6 +687,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Messages]
+        operationId: sendMessage
         description: Sends a message to user. user_id or peer_id required
         parameters:
           - name: user_id
@@ -705,6 +726,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Messages]
+        operationId: deleteMessage
         description: Deletes the message.
         parameters:
           - name: message_ids
@@ -723,7 +745,8 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Messages]
-        description: Deletes the message.
+        operationId: restoreMessage
+        description: Restore the message.
         parameters:
           - name: message_ids
             in: query
@@ -741,6 +764,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Messages]
+        operationId: getConversations
         description: Returns user`s chat list.
         parameters:
           - name: offset
@@ -774,6 +798,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Messages]
+        operationId: getConversationsById
         description: Returns the user`s chats by their peer IDs.
         parameters:
           - name: extended
@@ -796,6 +821,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Messages]
+        operationId: getMessagesHistory
         description: Returns chat`s history.
         parameters:
           - name: offset
@@ -847,6 +873,7 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Messages]
+        operationId: getMessageLongPollHistory
         description: Return`s LongPoll history.
         parameters:
           - name: ts
@@ -879,6 +906,8 @@ contents: >
       get:
         security: [ApiKeyAuth: []]
         tags: [Messages]
+        operationId: getMessageLongPollServer
+        description: get longpoll server
         parameters:
           - name: need_pts
             in: query
@@ -899,6 +928,8 @@ contents: >
     /Ovk.version:
       get:
         tags: [Ovk]
+        operationId: OVKversion
+        description: OVK version
         responses:
           '200':
             description: 'Version string'
@@ -914,8 +945,9 @@ contents: >
       get:
         security:
           - ApiKeyAuth: []
-          - {}
         tags: [Ovk]
+        operationId: test
+        description: Test OVK + token
         responses:
           '200':
             description: 'information about access token'
@@ -938,6 +970,8 @@ contents: >
     /Ovk.chickenWings:
       get:
         tags: [Ovk]
+        operationId: chickenWings
+        description: chicken wings
         responses:
           '200':
             description: 'крылышки string'
@@ -952,6 +986,8 @@ contents: >
     /Ovk.aboutInstance:
       get:
         tags: [Ovk]
+        operationId: aboutInstance
+        description: about instance
         parameters:
           - name: fields
             in: query

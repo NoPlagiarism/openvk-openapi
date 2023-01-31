@@ -38,7 +38,11 @@ parameters:
     value: "1"
     description: ""
 headers: []
-authentication: {}
+authentication:
+  type: apikey
+  key: access_token
+  value: "{{ accessToken }}"
+  addTo: query
 metaSortKey: -1670509411170
 isPrivate: false
 settingStoreCookies: true
